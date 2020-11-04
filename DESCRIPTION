@@ -1,0 +1,20 @@
+Package: npf
+Type: Package
+Title: Contains useful functions for NPF
+Version: 0.1.0
+Author: David Wilkinson
+Maintainer: dwilkin799@gmail.com
+Description: 
+License: 
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    seqinr,
+    dplyr,
+    roxygen2,
+    magrittr,
+    reshape2
+biocViews:
+    DECIPHER,
+    Biostrings
+RoxygenNote: 7.1.0
