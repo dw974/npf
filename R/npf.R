@@ -1,4 +1,14 @@
-
+#' The function extract_region uses a reference fasta file to set up a custom BLAST database.
+#' It then queries all fasta files in the query folder, and returns regions with BLAST matches to the database.
+#'
+#' Before use, BLAST+ must be installed on the local machine.
+#'
+#' @param ref Fasta file name: the file containing the fasta-format sequences which will be set up as a database.
+#' @param qry_fld Folder name: the query folder, containing all sequences (fasta format) that you wish to extract regions from. Files in the folder should have only the suffixes ".fasta", ".fna", ".fa" or ".fas"
+#' @param temp_dir Folder name: the temporary folder in which to store files
+#' @param len_thresh Integer: A minimum sequence length to retain for BLAST matches.
+#'
+#' @return A data frame summarising the BLAST results from the query
 extract_region <- function(ref=NULL,qry_fld=NULL,temp_dir=NULL,len_thresh=NULL) {
   if (is.null(ref)) stop("Please provide a fasta file containing reference sequence data")
   if (is.null(temp_dir)) temp_dir=tempdir()
