@@ -61,7 +61,14 @@ extract_region <- function(ref=NULL,qry_fld=NULL,temp_dir=NULL,len_thresh=NULL) 
   return(res)
 }
 
-
+#' The function align_df aligns sequences returned by extract_region using MAFFT, and assigns an allele number to each sequence.
+#'
+#' Before use, MAFFT must be installed on the local machine.
+#'
+#' @param df dataframe: the output of the function extract_region.
+#' @param temp_dir Folder name: the temporary folder in which to store files
+#'
+#' @return A data frame with aligned sequences and allele numbers
 align_df=function(df=NULL,temp_dir=NULL){
   if (is.null(temp_dir)) temp_dir=tempdir()
 
@@ -80,6 +87,12 @@ align_df=function(df=NULL,temp_dir=NULL){
   return(df)
 }
 
+
+#' The function get_source_data parses eutils to return source metadata for a list of Genbank IDs.
+#'
+#' @param ids character vector: containing all IDs that you wish to extract metadata for.
+#'
+#' @return A data frame with all source metadata
 get_source_data=function(ids=NULL){
 
   md=lapply(1:length(ids),function(y){
